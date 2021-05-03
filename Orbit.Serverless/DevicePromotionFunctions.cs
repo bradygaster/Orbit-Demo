@@ -17,13 +17,9 @@ namespace Orbit.Serverless
 {
     public static class DevicePromotionFunctions
     {
-        [OpenApiOperation(operationId: nameof(CreateNewDevicePromotion),
-          Visibility = OpenApiVisibilityType.Important)
-        ]
+        [OpenApiOperation(operationId: nameof(CreateNewDevicePromotion), Visibility = OpenApiVisibilityType.Important)]
         [OpenApiRequestBody("application/json", typeof(DevicePromotion))]
-        [OpenApiResponseWithBody(HttpStatusCode.OK,
-            "application/json",
-            typeof(DevicePromotion[]))]
+        [OpenApiResponseWithBody(HttpStatusCode.OK, "application/json", typeof(DevicePromotion[]))]
         [FunctionName(nameof(CreateNewDevicePromotion))]
         public static IActionResult CreateNewDevicePromotion(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
